@@ -52,10 +52,7 @@ def print_match(disease, path, score):
 def parse_rawdata(databases_root, databases, taxonomy_file):
 	"""
 	Given a list of databases and the taxonomy file, returns and saves the
-	the list of tuples (image path, 
-					    image label, 
-						path in taxonomy, 
-						match score)
+	list of tuples (image path, image label, taxonomy path, match score)
 	"""
 	data = []
 
