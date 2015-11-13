@@ -1,22 +1,21 @@
 import os, json
-from string import join, lowercase, uppercase
+from string import join, lowercase
 from difflib import SequenceMatcher
 from numpy import *
 
 def sim(a, b):
 	"""
-	Computes match score between 0 and 1 for two strings
+	Computes match score for two strings between 0 and 1
 	"""
-	score = SequenceMatcher(None, join(a, ''), join(b, '')).ratio()
-	return score
+	return SequenceMatcher(None, a, b).ratio()
 
 def get_best_path(y, T, p=[]):
 	"""
 	Recursively finds the best path p of disease y in taxonomy T
 	"""
 	PS = [get_best_path(y, t, p+[t['name']]) for t in T['children']]
-	ps = (p, sim(y, T['name']))
-	PS.append(ps)
+	s = sim(join(y, ''), join(T['name'] ,''))
+	PS.append((p, s))
 	p, s = PS[argmax([s for p, s in PS])]
 	return p, s
 
