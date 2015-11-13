@@ -1,3 +1,6 @@
+# TensorFlow Example using Skindata
+
+## Data Preparation
 To run this example, you must first replace the beginning of the paths
 in val.txt and train.txt with the paths to your dataset.
 
@@ -9,4 +12,8 @@ And your copy of skindata is in folder path/to/folder, then run the
 following commands from this folder:
 
 sed -i -- 's/\/home\/esteva\/ThrunResearchReserves\/skindata2/path\/to\/folder' val.txt
+
 sed -i -- 's/\/home\/esteva\/ThrunResearchReserves\/skindata2/path\/to\/folder' train.txt
+
+## Training
+python skindata_multi_gpu_train.py
